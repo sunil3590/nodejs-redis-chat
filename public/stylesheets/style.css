@@ -1,0 +1,71 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  padding-left: 4%;
+  font: 24px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height:90%;
+  width: 90%;
+  background: url("/images/ncsu_light.png");
+  background-repeat: repeat;
+  z-index: 1;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#title {
+  margin: 5px;
+  text-align: center;
+  width: 100%;
+  height: 10%;
+  z-index: 2;
+}
+
+#history {
+  margin: 2px;
+  border-style: solid;
+  border-width: 1px;
+  width: 100%;
+  height: 75%;
+  overflow: scroll;
+  z-index: 2;
+  background-color: white;
+}
+
+#my_msg {
+  text-align: left;
+  height: 5%;
+  list-style: none;
+}
+
+#their_msg {
+  text-align: right;
+  height: 5%;
+  list-style: none;
+}
+
+#new_msg {
+  margin: 2px;
+  text-align: left;
+  vertical-align: top;
+  width: 100%;
+  height: 10%;
+  z-index: 2;
+}
+
+#send {
+  margin: 2px;
+  text-align: center;
+  z-index: 2;
+  width: 100%;
+  height: 5%;
+}
+
+#send_btn {
+  width: 25%;
+  height: 100%;
+}

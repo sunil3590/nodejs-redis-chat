@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1#title node.js multi-client chat
+
+  div#history
+    ul#old_msgs
+  
+  input#new_msg(type='text')
+  
+  div#send
+    button(id='send_btn') Send
