@@ -46,6 +46,7 @@ a {
   text-align: right;
   height: 5%;
   list-style: none;
+  padding-right: 4%;
 }
 
 #status_msg {
