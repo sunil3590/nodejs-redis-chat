@@ -54,6 +54,9 @@ function onConnect(client) {
 
     // send all old msgs to new client
     sendOldMsgs(client);
+
+    // send status update about the new client
+    sendStatus(socket, uid + " joined room");
 }
 
 // send all the old messages to a new client
@@ -65,9 +68,19 @@ function sendOldMsgs(client) {
     }
 }
 
+// send status to clients
+function sendStatus(socket, statusMsg) {
+    // emit the status msg to all clients
+    socket.emit('status', {status: statusMsg});
+}
+
 // handle a client disconnection
-function onDisconnect(socket) {
+function onDisconnect(client) {
     console.log("A client disconnected");
+    console.log(client);
+
+    // send a status update to all users about disconnection
+    sendStatus(socket, "a user left room");
 }
 
 // view engine setup

@@ -48,6 +48,14 @@ a {
   list-style: none;
 }
 
+#status_msg {
+  text-align: center;
+  height: 5%;
+  list-style: none;
+  color: blue;
+  font-size: 70%;
+}
+
 #new_msg {
   margin: 2px;
   text-align: left;
