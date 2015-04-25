@@ -25,12 +25,9 @@ socket.on('disconnection', onDisconnect);
 // queue to hold messages
 var msgs = [];
 
-// to generate next user ID
-var nextUserID = 0;
-
 // handle new message from a client
 function handleInComing(data) {
-    console.log("new msg : " + data.userID + " " + data.text);
+    //console.log("new msg : " + data.userID + " - " + data.text);
 
     // store the new message
     msgs[msgs.length] = data;
@@ -39,24 +36,27 @@ function handleInComing(data) {
     socket.emit('old-msg', {userID: data.userID, text: data.text});
 }
 
+// handle user id coming from the client
+function handleUserID(data) {
+    // extract user id from data
+    var id = data.userID
+
+    // send status update about the new client
+    sendStatus(socket, id + " joined room");
+}
+
 // handle new connections
 function onConnect(client) {
-    // send the client its user ID
-    var uid = "user_" + nextUserID;
-    client.emit('user-id', {userID: uid});
-    console.log("new client conneceted : " + nextUserID);
-
-    // update the next user ID
-    nextUserID++;
+    //console.log("new client conneceted");
 
     // set up handler for new-msg from client
     client.on('new-msg', handleInComing);
 
+    // set up handler for user-id from client
+    client.on('user-id', handleUserID);
+
     // send all old msgs to new client
     sendOldMsgs(client);
-
-    // send status update about the new client
-    sendStatus(socket, uid + " joined room");
 }
 
 // send all the old messages to a new client
