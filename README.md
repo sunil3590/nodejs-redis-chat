@@ -20,7 +20,7 @@ sudo npm install nodejs-redis-chat
 
 #### To start chat server:
 ```
-sudo node app.js
+sudo node index.js
 ```
 
 #### Usage:
